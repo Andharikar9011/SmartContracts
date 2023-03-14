@@ -15,5 +15,13 @@ contract CheckPrime{
         }
     }
 
-    
+    function NumSumTill(uint a) external pure returns(uint){
+        uint j = 0;
+        uint k = 0;
+        while(k <= a){
+            j = j + k;
+            k++;
+        }
+        return j;
+    }
 }
