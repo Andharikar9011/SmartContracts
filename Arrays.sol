@@ -30,6 +30,12 @@ contract Array{
         nums[i] = val;
     }
 
+    function addMultiple(uint[] memory arr) external{
+        for(uint i; i < arr.length; i++){
+            nums.push(arr[i]);
+        }
+    }
+
 }
 
 contract ArrayDataRemoval{
