@@ -52,3 +52,26 @@ contract NestedMappings{
 
 
 }
+
+contract iteratableMappings{
+    mapping(address => uint) public balances;
+    mapping(address => bool) public isaddress;
+    address[] public keys;
+
+    function addBalance(address myAdd, uint balance) external {
+        balances[myAdd] = balance;
+        if(! isaddress[myAdd]){
+            isaddress[myAdd]= true;
+            keys.push(myAdd);
+        }
+    }
+
+    function balancesLength() view external returns(uint) {
+        return keys.length;
+    }
+
+    function balanceSearch(uint index) view external returns(address, uint){
+        return (keys[index],balances[keys[index]]);
+    }
+
+ }
